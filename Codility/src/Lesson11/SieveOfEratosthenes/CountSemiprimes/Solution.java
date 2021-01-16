@@ -8,20 +8,14 @@ class Solution {
 
 		// 소수 목록 캐싱
 		Set<Integer> primeSet = new HashSet<>();
+		boolean[] isSemiPrime = new boolean[N + 1];
 
 		for (int i = 2; i <= N / 2; i++) {
 			if (isPrime(i)) {
 				primeSet.add(i);
-			}
-		}
-
-		// 소수x소수 여부를 저장
-		boolean[] isSemiPrime = new boolean[N + 1];
-
-		for (int i = 4; i <= N; i++) {
-			for (int prime : primeSet) {
-				if (i % prime == 0 && primeSet.contains(i / prime))
-					isSemiPrime[i] = true;
+				for (int prime : primeSet)
+					if (prime * i <= N)
+						isSemiPrime[prime * i] = true;
 			}
 		}
 
@@ -56,5 +50,5 @@ class Solution {
 
 		return true;
 	}
-
+	
 }
