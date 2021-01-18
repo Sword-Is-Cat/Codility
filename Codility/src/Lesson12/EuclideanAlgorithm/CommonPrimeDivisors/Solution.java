@@ -1,4 +1,4 @@
-package Lesson12.EuclideanAlgorithmCommonPrimeDivisors;
+package Lesson12.EuclideanAlgorithm.CommonPrimeDivisors;
 
 import java.util.ArrayList;
 import java.util.List;
